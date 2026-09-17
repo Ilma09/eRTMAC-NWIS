@@ -1,0 +1,1088 @@
+/* =====================================================
+   UPLOAD PAGE
+===================================================== */
+
+.upload-page {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 30px 34px 50px;
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  overflow-y: auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.upload-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 32px;
+}
+
+.upload-eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+  color: var(--primary);
+
+  text-transform: uppercase;
+}
+
+.upload-header h1 {
+  margin: 0 0 8px;
+
+  font-size: 30px;
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+
+  color: var(--text-primary);
+}
+
+.upload-header p {
+  max-width: 720px;
+
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   REPOSITORY STATUS
+===================================================== */
+
+.repository-status {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 9px;
+
+  background: var(--bg-card);
+
+  white-space: nowrap;
+}
+
+.online-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.12);
+}
+
+.repository-status strong {
+  display: block;
+
+  font-size: 11px;
+
+  color: var(--text-primary);
+}
+
+.repository-status small {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 9px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   UPLOAD SECTION
+===================================================== */
+
+.upload-section {
+  margin-bottom: 22px;
+}
+
+.upload-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+}
+
+.upload-section-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  color: var(--text-muted);
+}
+
+.upload-section-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.upload-section-header small {
+  font-size: 9px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   CATEGORY GRID
+===================================================== */
+
+.upload-category-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+
+/* =====================================================
+   CATEGORY CARD
+===================================================== */
+
+.upload-category {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 78px;
+
+  padding: 14px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--bg-card);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.upload-category:hover {
+  background: var(--hover);
+
+  border-color: var(--primary);
+
+  transform: translateY(-1px);
+}
+
+.upload-category.active {
+  background: var(--primary-light);
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 4px 14px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =====================================================
+   CATEGORY ICON
+===================================================== */
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-right: 12px;
+
+  border-radius: 9px;
+
+  background: var(--hover);
+
+  color: var(--text-secondary);
+
+  transition: 0.2s ease;
+}
+
+.upload-category.active .category-icon {
+  background: var(--primary);
+
+  color: white;
+}
+
+.upload-category:hover .category-icon {
+  color: var(--primary);
+}
+
+.upload-category.active:hover .category-icon {
+  color: white;
+}
+
+
+/* =====================================================
+   CATEGORY TEXT
+===================================================== */
+
+.category-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.category-text strong {
+  font-size: 12px;
+
+  font-weight: 750;
+
+  color: var(--text-primary);
+}
+
+.category-text span {
+  font-size: 9px;
+
+  color: var(--text-muted);
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   CATEGORY CHECK
+===================================================== */
+
+.category-check {
+  position: absolute;
+
+  top: 9px;
+  right: 9px;
+
+  color: var(--primary);
+}
+
+
+/* =====================================================
+   MAIN UPLOAD CARD
+===================================================== */
+
+.upload-main-card {
+  display: grid;
+
+  grid-template-columns: 42% 58%;
+
+  min-height: 350px;
+
+  margin-bottom: 30px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--bg-card);
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   LEFT INFORMATION PANEL
+===================================================== */
+
+.upload-info-panel {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 34px 38px;
+
+  border-right: 1px solid var(--border);
+}
+
+.current-upload-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 12px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+.current-label {
+  margin-bottom: 7px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.1px;
+
+  color: var(--text-muted);
+}
+
+.upload-info-panel h2 {
+  margin: 0 0 10px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.upload-info-panel > p {
+  max-width: 430px;
+
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   UPLOAD DETAILS
+===================================================== */
+
+.upload-details {
+  display: flex;
+
+  gap: 40px;
+
+  margin-top: 28px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+}
+
+.upload-details > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.upload-details span {
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+
+  color: var(--text-muted);
+}
+
+.upload-details strong {
+  font-size: 10px;
+
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+
+/* =====================================================
+   RIGHT DROP PANEL
+===================================================== */
+
+.upload-drop-panel {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 28px 34px;
+}
+
+
+/* =====================================================
+   DROP ZONE
+===================================================== */
+
+.upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 250px;
+
+  padding: 25px;
+
+  border: 1.5px dashed var(--border);
+
+  border-radius: 10px;
+
+  background: var(--bg-primary);
+
+  text-align: center;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.upload-drop-zone.drag-active {
+  border-color: var(--primary);
+
+  background: var(--primary-light);
+}
+
+
+/* =====================================================
+   CLOUD ICON
+===================================================== */
+
+.upload-cloud {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 50%;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+.upload-drop-zone h3 {
+  margin: 0 0 6px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.upload-drop-zone p {
+  margin: 0 0 16px;
+
+  font-size: 10px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   BROWSE BUTTON
+===================================================== */
+
+.browse-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 9px 17px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.browse-button:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DROP HINT
+===================================================== */
+
+.drop-hint {
+  margin-top: 13px;
+
+  font-size: 8px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   SELECTED FILE
+===================================================== */
+
+.selected-file-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: var(--bg-primary);
+}
+
+.selected-file-left {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  gap: 10px;
+}
+
+.selected-file-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+.selected-file-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.selected-file-details strong {
+  max-width: 360px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 10px;
+
+  color: var(--text-primary);
+}
+
+.selected-file-details span {
+  font-size: 8px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   REMOVE FILE
+===================================================== */
+
+.remove-file {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.remove-file:hover {
+  background: rgba(239, 68, 68, 0.1);
+
+  color: #ef4444;
+}
+
+
+/* =====================================================
+   FINAL UPLOAD BUTTON
+===================================================== */
+
+.final-upload-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 12px;
+
+  padding: 11px 15px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.final-upload-button:hover:not(:disabled) {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+.final-upload-button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   UPLOAD LOADER
+===================================================== */
+
+.upload-loader {
+  width: 13px;
+  height: 13px;
+
+  border: 2px solid rgba(255, 255, 255, 0.4);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: upload-spin 0.7s linear infinite;
+}
+
+@keyframes upload-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =====================================================
+   UPLOAD RESULT
+===================================================== */
+
+.upload-result {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-top: 12px;
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.upload-result strong {
+  display: block;
+
+  font-size: 11px;
+}
+
+.upload-result span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: inherit;
+  opacity: 0.85;
+}
+
+.upload-result a {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 3px;
+
+  color: inherit;
+  font-weight: 700;
+
+  text-decoration: underline;
+}
+
+.upload-result-success {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.upload-result-duplicate {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.upload-result-error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.dark-mode .upload-result-success {
+  background: #052e16;
+  color: #86efac;
+}
+
+.dark-mode .upload-result-duplicate {
+  background: #451a03;
+  color: #fcd34d;
+}
+
+.dark-mode .upload-result-error {
+  background: #450a0a;
+  color: #fca5a5;
+}
+
+
+/* =====================================================
+   BOTTOM INFORMATION
+===================================================== */
+
+.upload-bottom {
+  width: 100%;
+}
+
+.bottom-title {
+  margin-bottom: 15px;
+}
+
+.bottom-title span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.1px;
+
+  color: var(--text-muted);
+}
+
+.bottom-title h2 {
+  margin: 0;
+
+  font-size: 17px;
+
+  color: var(--text-primary);
+}
+
+
+/* =====================================================
+   RECORD GRID
+===================================================== */
+
+.record-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+
+/* =====================================================
+   RECORD CARD
+===================================================== */
+
+.record-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 17px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--bg-card);
+}
+
+.record-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+}
+
+.record-icon.blue {
+  background: rgba(37, 99, 235, 0.1);
+
+  color: #2563eb;
+}
+
+.record-icon.orange {
+  background: rgba(245, 158, 11, 0.1);
+
+  color: #f59e0b;
+}
+
+.record-icon.purple {
+  background: rgba(139, 92, 246, 0.1);
+
+  color: #8b5cf6;
+}
+
+.record-icon.green {
+  background: rgba(16, 185, 129, 0.1);
+
+  color: #10b981;
+}
+
+.record-card strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 12px;
+
+  color: var(--text-primary);
+}
+
+.record-card span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  color: var(--primary);
+}
+
+.record-card p {
+  margin: 0;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .upload-page {
+    padding: 25px;
+  }
+
+  .upload-main-card {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-info-panel {
+    border-right: none;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .upload-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .upload-header {
+    flex-direction: column;
+  }
+
+  .repository-status {
+    width: fit-content;
+  }
+
+  .upload-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .record-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-info-panel {
+    padding: 25px;
+  }
+
+  .upload-drop-panel {
+    padding: 22px;
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .upload-page {
+    padding: 20px 15px 35px;
+  }
+
+  .upload-header h1 {
+    font-size: 25px;
+  }
+
+  .upload-header p {
+    font-size: 11px;
+  }
+
+  .upload-details {
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .upload-drop-zone {
+    min-height: 220px;
+
+    padding: 20px 12px;
+  }
+
+  .upload-section-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .selected-file-details strong {
+    max-width: 180px;
+  }
+
+}

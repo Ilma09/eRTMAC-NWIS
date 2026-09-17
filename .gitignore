@@ -1,0 +1,27 @@
+# --- Not part of the project source (backups / reference material) ---
+*.zip
+/SIH research papers/
+/datset/
+*.log
+
+# --- Python (backend) ---
+backend/venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+
+# --- Runtime data / generated content (backend) ---
+backend/data/
+backend/uploads/
+backend/pages/
+backend/artifacts/
+backend/scratch_artifacts/
+backend/.claude/
+
+# --- Node (frontend) ---
+ertmac-nwis/node_modules/
+ertmac-nwis/dist/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db

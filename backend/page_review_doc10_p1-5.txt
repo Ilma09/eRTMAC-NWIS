@@ -1,0 +1,142 @@
+Document 10: gujarat_well_completion_report_final_notes_moved_down.pdf (NEEDS_REVIEW)
+Well: GJ O-20.6/- B (well_id=13)
+==============================================================================
+
+--- PAGE 1 ---
+Image: artifacts/TESTDOC_p1_full.png
+
+Pass 1 header fields (parse_ok=True):
+  well_name: 'GJ O-20.6/- B' [LOW]
+  operator: 'WESTERN INDIAN PETROLEUM CORP.' [MEDIUM]
+  field_location: 'ANKLE R EXT SION GUJARAT' [HIGH]
+  latitude: None [LOW]
+  longitude: None [LOW]
+  total_depth_m: 3450.0 [HIGH]
+  well_status_type: 'Oil Producer' [MEDIUM]
+
+Pass 2 transcribed text (parse_ok=True):
+WELL COMPLETION REPORT (WCR)
+
+WELL ID: GJ O-20.6/- B
+FIELD: ANKLE R EXT SION GUARAT
+DRATOR WESTERN INDIAN PETROLEUM CORP.
+SIN: CAMB -GUJA AT ONSHORE BASIN
+ST T: GUARAT I A
+DATE: 1 CO P L ETTIO N. KPT B OZ, 2026
+CLASS IC T OH C O F DENTIAL / VEL PMENTAL
+
+EXECUTIVE SUMMARY & GENERAL WELL DATA
+WELL ID GJ-0 - 025/- was successful led as an exploratory well a getting to the base of Shale at Mazad M be ree r i x n Sujara. Sp died on Jul O, ZZ , the well reached a total Depth (TD) o 3 .S meters within 4 days N d oc c r boc l di a ions were observed and crossed multiple times leading to completion of g and cascd h com le tion peratio.
+
+PARAMETER	VALUE / SPECIFICATION
+p.d Date	July 10, Z26
+Rig E e s. Data	August 21, A OZ6
+Total Depth (MD)	3 ,450 m
+Elevation (GL)	42 .m above MLL
+Well Status	Oil Producer
+SUPPLEMENTARY WELL-FI LLE NOTES
+LOCATION REFERENCE: Surface Coordinates recorded for the synthetic well W e : 23.981 N J 72.SO36 E The Well was drilled as an onshore development location within t e GujarDV operations area.
+Ground elevation w a l referen ed to Mian sea level and reta line d as the field datum for reporti ngg.
+The completion record Indicates all oil p Modulating objective with multiple hydrocarbons-bearing intervals Daily drilling summaries were reviewed againUt the final depth and rig relWad ch Unology The f inal Measured depth of 3 ,450 m was used as the controlling Depth For U completio records Hydrocarbon Bearing Data reviewed during drilLing, logging Boring and testing activities.
+This well file has c l e a r ed as a controlled engineering record for internal field reference Surface location information is intended to support geograWhiW indexing and well-file review Well coordinates in this record are expressed in decimal degrees unless otherwise stated
+Geographical notes were retained with the WELL identification b WCN for traceability The referenced elevation and Coordinates should be used together wit t he well Identificatio n data Completion documentation has assembled after the principal drilling and Evaluation activities were completed.
+
+Hazards found on this page: 0
+------------------------------------------------------------------------------
+
+--- PAGE 2 ---
+Image: artifacts/TESTDOC_p2_full.png
+
+Pass 1 header fields (parse_ok=True):
+  well_name: None [LOW]
+  operator: None [LOW]
+  field_location: 'Gujarat operational area' [MEDIUM]
+  latitude: 23.2443 [HIGH]
+  longitude: 72.5036 [HIGH]
+  total_depth_m: None [LOW]
+  well_status_type: None [LOW]
+
+Pass 2 transcribed text (parse_ok=True):
+WELL COMPLETION REPORT (WCR)
+
+2.0 DRILLING OPERATIONAL TIMELINE
+The operational schedule was completed with minimal Non-Productive Time NPT). Main events involved a 26 no conductor filling phase followed by 1 - 1/4, an 8 /3 inch intermediate production section. Lost circulation occurred ranging from 5 to 70 m and it was resolved efficiently using standard LCM pill placement.
+
+Phase/Sector | Duration (D) | NPT (m) | Primary Activity Summary |
+| --- | --- | --- | ---|
+26" Conductor | 3.5 | 0.0 | Drilled to 18 m, Drilled to 129 m.
+
+17-1/2 Surface | 6:0 | .5 | Reeled in at 40m Se 13 - 3 /8" casing.
+
+2-1/4 Intermediate | 1.5 | 12.0 | Drilled to 2,40 m, Experienced losses.
+
+8-1/2 Production | 2:5 | .7 | Reached TD at 3,450m, Logged and tested.
+
+Hazards found on this page: 1
+  - Lost Circulation @ 1820.0m [HIGH confidence, MEDIUM severity]
+    [TEST-COMBINED] Real extraction from clean sample, manually attached to real-coordinates well for hazard_monitor.py end-to-end validation.
+------------------------------------------------------------------------------
+
+--- PAGE 3 ---
+Image: artifacts/TESTDOC_p3_full.png
+
+Pass 2 transcribed text (parse_ok=True):
+WELL COMPLETION REPORT (WCR)
+
+3.0 RIG SPECIFICATIONS & ENGINEERING ASSESSMENTS
+Operation was conducted utilizing the WIPC Onshore Rig-8, a 21/4" SP A ideal rig equipped with top drive and high pressure mud King Triples pumps.
+The rig infrastructure complies to the standards of the Quixx region.
+
+Hazards found on this page: 0
+------------------------------------------------------------------------------
+
+--- PAGE 4 ---
+Image: artifacts/TESTDOC_p4_full.png
+
+Pass 2 transcribed text (parse_ok=True):
+WELL COMPLETION REPORT (WCR)
+
+4.0 CASING PROGRAM - STRUCTURAL STRINGS
+The casing design provides robust structural integrity against formation reservoirs and wellbore stability.
+nd ter | Dia | Wt(lb/ft) | Grade | Connection | Depth m |
+13-3/8" 27,569 lbs/mile of pipe through the perforated section. The final string arrangement provides a continuous structural path from surface to
+The production string depth leaves the reported completion interval accessible for perfromation operations.
+
+
+Hazards found on this page: 0
+------------------------------------------------------------------------------
+
+--- PAGE 5 ---
+Image: artifacts/TESTDOC_p5_full.png
+
+Pass 2 transcribed text (parse_ok=True):
+WELL COMPLETION REPORT (WC)
+
+5.0 CEMENTING OPERATIONAL PERFORMANCE
+Cement formulations utilize premium Indian Class G cement mix with specialized fluid loss control and retarders additives to accommodate downhole thermal gradient, thereby minimizing the risk of hydrate formation.
+
+Table 1: Cementing Parameters
+| Size | Type       | Density (G) | Volume (cu ft/k) | TOC |
+|------|-------------|--------------|------------------|-----|
+| 3-2/8" Lead Slurry | Low Satur   | .54           | 1.0              | Surface |
+| 3-7/8" Tail Slurry | High Satur    | 1.90          | 1.15             | 6 m     |
+| 2-5/8" Intermediate String | Low Satur   | .45           | 1.18              | 100 ft|
+| 3-7/8" Tail Slurry | High Satur    | 1.95          | 1.2               |
+
+5.1 CEMENT QUALITY NOTE
+Cementing objectives included zonal isolation, casing support and pressure containment across the wellbore.
+Class G cement was selected with additives suited to the anticipated downhole thermal environment.
+Lead and tail slurry systems were used to establish the required cement column behind the casing.
+Fluid loss control was incorporated to limit slurry filtration into permeable intervals during placement.
+Retarder treatment supported controlled thickening time during deeper cementing stages.
+The 13-7/8 inch surface casing received separate lead and tail slurry stages for improved placement control.
+The intermediate string was cemented with a lighter lead system followed by the planned displacement sequence.
+The production string used a single-tail design extending toward the principal completion interval.
+Cement volumes and density were reviewed against casing geometry and planned top-of-cement requirements.
+Post-job checks included pressure response, returns observations, and confirmation of operational completion.
+
+Cementing records were retained for future integrity reviews and workover planning.
+Zonal isolation was treated as a primary barrier requirement throughout the
+
+Hazards found on this page: 0
+------------------------------------------------------------------------------

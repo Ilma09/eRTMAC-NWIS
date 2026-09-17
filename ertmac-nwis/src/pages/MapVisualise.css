@@ -1,0 +1,1282 @@
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.map-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   LEFT CONTROL PANEL
+========================================================= */
+
+.map-control-panel {
+  width: 350px;
+  min-width: 350px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  z-index: 1000;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.map-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.map-brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  flex-shrink: 0;
+}
+
+.map-brand h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.map-brand span {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.well-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.well-stat {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+
+.well-stat svg {
+  flex-shrink: 0;
+}
+
+.well-stat strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.well-stat span {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.active-stat svg {
+  color: #ef4444;
+}
+
+.historical-stat svg {
+  color: #22c55e;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.map-search {
+  position: relative;
+  margin: 0 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-primary);
+}
+
+.map-search > svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.map-search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.map-search input::placeholder {
+  color: var(--text-muted);
+}
+
+.clear-search {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
+.clear-search:hover {
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   RADIUS
+========================================================= */
+
+.radius-panel {
+  margin: 0 16px 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.section-title > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.section-title svg {
+  color: var(--primary);
+}
+
+.section-title span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.small-clear-btn {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.radius-input-row {
+  display: flex;
+  gap: 7px;
+}
+
+.radius-input-row input {
+  min-width: 0;
+  flex: 1;
+  height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  outline: none;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 11px;
+}
+
+.radius-apply-btn {
+  height: 34px;
+  padding: 0 11px;
+  border: none;
+  border-radius: 7px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.radius-apply-btn:hover {
+  opacity: 0.9;
+}
+
+.radius-help {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.radius-help svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* =========================================================
+   ADD WELL
+========================================================= */
+
+.add-well-section {
+  margin: 0 16px 10px;
+}
+
+.add-well-toggle {
+  width: 100%;
+  height: 38px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.add-well-toggle:hover {
+  border-color: var(--primary);
+}
+
+.add-well-toggle span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.add-well-toggle span svg {
+  color: var(--primary);
+}
+
+.add-well-form {
+  margin-top: 7px;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-primary);
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.form-field {
+  margin-bottom: 8px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 10px;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--primary);
+}
+
+.coordinate-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.coordinate-inputs .form-field {
+  margin-bottom: 8px;
+}
+
+.save-well-btn {
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 7px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.save-well-btn:hover {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   WELL LIST HEADER
+========================================================= */
+
+.well-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px 8px;
+}
+
+.well-list-header > div {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.well-list-header span {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.well-list-header small {
+  color: var(--text-muted);
+  font-size: 9px;
+}
+
+.well-list-header > svg {
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   WELL LIST
+========================================================= */
+
+.well-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 12px 8px;
+}
+
+.well-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.well-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.well-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 20px;
+}
+
+/* =========================================================
+   WELL CARD
+========================================================= */
+
+.well-card {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.well-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.well-card.selected {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.well-type-dot {
+  width: 9px;
+  height: 9px;
+  margin-top: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.active-dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.historical-dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+.well-card-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.well-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.well-card-top strong {
+  min-width: 0;
+  font-size: 11px;
+  line-height: 1.3;
+  font-weight: 750;
+}
+
+.well-badge {
+  flex-shrink: 0;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 7px;
+  font-weight: 800;
+}
+
+.active-badge {
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.historical-badge {
+  color: #16a34a;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.well-card-id {
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 8px;
+}
+
+.well-card-location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 8px;
+}
+
+.well-card-location svg {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   NO WELLS
+========================================================= */
+
+.no-wells {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.no-wells svg {
+  margin-bottom: 8px;
+}
+
+.no-wells p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.no-wells span {
+  margin-top: 3px;
+  font-size: 9px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.map-panel-footer {
+  padding: 9px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.map-panel-footer span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-muted);
+  font-size: 9px;
+}
+
+/* =========================================================
+   MAP AREA
+========================================================= */
+
+.map-area {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.leaflet-container {
+  background: var(--bg-primary);
+}
+
+/* =========================================================
+   MAP TOP
+========================================================= */
+
+.map-top-overlay {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  right: 20px;
+  z-index: 500;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.map-top-overlay > div:first-child {
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.14);
+}
+
+.map-top-overlay h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.map-top-overlay p {
+  margin: 3px 0 0;
+  color: #64748b;
+  font-size: 10px;
+}
+
+/* =========================================================
+   MAP ACTIONS
+========================================================= */
+
+.map-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  pointer-events: auto;
+}
+
+.map-type-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.14);
+}
+
+.map-type-switcher button {
+  height: 31px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.map-type-switcher button:hover {
+  background: #f1f5f9;
+}
+
+.map-type-switcher button.map-type-active {
+  background: #2563eb;
+  color: white;
+}
+
+.active-well-btn {
+  height: 39px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.18);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.active-well-btn:hover {
+  opacity: 0.92;
+}
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.map-legend {
+  position: absolute;
+  left: 20px;
+  bottom: 24px;
+  z-index: 500;
+  min-width: 155px;
+  padding: 11px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.14);
+}
+
+.legend-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: #172033;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.legend-title svg {
+  color: #2563eb;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+  color: #475569;
+  font-size: 9px;
+}
+
+.legend-marker {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.active-legend {
+  background: #ef4444;
+}
+
+.historical-legend {
+  background: #22c55e;
+}
+
+.radius-legend {
+  width: 9px;
+  height: 9px;
+  border: 2px solid #2563eb;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   COORDINATE CARD
+========================================================= */
+
+.coordinate-card {
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+  z-index: 500;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.14);
+}
+
+.coordinate-card-icon {
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: #eff6ff;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.coordinate-card span {
+  display: block;
+  color: #64748b;
+  font-size: 8px;
+}
+
+.coordinate-card strong {
+  display: block;
+  margin-top: 2px;
+  color: #172033;
+  font-size: 10px;
+}
+
+.coordinate-card button {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+}
+
+/* =========================================================
+   PLACE LABELS
+========================================================= */
+
+.place-label-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.place-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  white-space: nowrap;
+  pointer-events: none;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  color: #1f2937;
+  text-shadow:
+    0 0 3px #fff,
+    0 0 3px #fff,
+    0 0 5px #fff,
+    0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   CUSTOM WELL MARKERS
+========================================================= */
+
+.custom-well-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-well-marker {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-inner {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.active-marker .marker-inner {
+  background: #ef4444;
+}
+
+.historical-marker .marker-inner {
+  background: #22c55e;
+}
+
+.marker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.marker-pulse {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.28);
+  animation: markerPulse 1.8s infinite;
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.8;
+  }
+
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.22);
+}
+
+.leaflet-popup-content {
+  width: 280px !important;
+  margin: 0;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-card);
+}
+
+.well-popup {
+  padding: 14px;
+}
+
+.popup-type {
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.popup-active {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+.popup-history {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+}
+
+.popup-header h3 {
+  margin: 5px 0 2px;
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.popup-header small {
+  color: var(--text-muted);
+  font-size: 8px;
+}
+
+.popup-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 9px;
+}
+
+.popup-location svg {
+  color: var(--primary);
+}
+
+.popup-coordinates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.popup-coordinates div {
+  padding: 7px;
+  border-radius: 7px;
+  background: var(--bg-primary);
+}
+
+.popup-coordinates span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 7px;
+}
+
+.popup-coordinates strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-primary);
+  font-size: 9px;
+}
+
+.popup-details {
+  margin-top: 9px;
+  display: grid;
+  gap: 6px;
+}
+
+.popup-details > div {
+  display: grid;
+  grid-template-columns: 17px 1fr auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.popup-details svg {
+  color: var(--primary);
+}
+
+.popup-details span {
+  color: var(--text-secondary);
+  font-size: 8px;
+}
+
+.popup-details strong {
+  color: var(--text-primary);
+  font-size: 8px;
+}
+
+.popup-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+
+.popup-status span {
+  color: var(--text-muted);
+  font-size: 8px;
+}
+
+.popup-status strong {
+  color: var(--primary);
+  font-size: 8px;
+}
+
+/* =========================================================
+   LEAFLET CONTROLS
+========================================================= */
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.18) !important;
+}
+
+.leaflet-control-zoom a {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #172033 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #f1f5f9 !important;
+}
+
+.leaflet-control-attribution {
+  font-size: 8px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* =========================================================
+   DARK MODE
+   IMPORTANT:
+   Satellite imagery is NOT darkened.
+========================================================= */
+
+.app.dark-mode .leaflet-tile {
+  filter: none !important;
+}
+
+.app.dark-mode .leaflet-container {
+  background: #0f172a;
+}
+
+.app.dark-mode .map-top-overlay > div:first-child,
+.app.dark-mode .map-type-switcher,
+.app.dark-mode .map-legend,
+.app.dark-mode .coordinate-card {
+  background: rgba(30, 41, 59, 0.96);
+}
+
+.app.dark-mode .map-top-overlay h1 {
+  color: #f8fafc;
+}
+
+.app.dark-mode .map-top-overlay p {
+  color: #cbd5e1;
+}
+
+.app.dark-mode .map-type-switcher button {
+  color: #cbd5e1;
+}
+
+.app.dark-mode .map-type-switcher button:hover {
+  background: #334155;
+}
+
+.app.dark-mode
+  .map-type-switcher
+  button.map-type-active {
+  background: #60a5fa;
+  color: #0f172a;
+}
+
+.app.dark-mode .legend-title {
+  color: #f8fafc;
+}
+
+.app.dark-mode .legend-item {
+  color: #cbd5e1;
+}
+
+.app.dark-mode .coordinate-card strong {
+  color: #f8fafc;
+}
+
+.app.dark-mode .coordinate-card span {
+  color: #cbd5e1;
+}
+
+.app.dark-mode .coordinate-card-icon {
+  background: #172554;
+  color: #60a5fa;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+  .map-control-panel {
+    width: 300px;
+    min-width: 300px;
+  }
+
+  .map-type-switcher button {
+    padding: 0 6px;
+  }
+
+  .coordinate-card {
+    min-width: 190px;
+  }
+}
+
+@media (max-width: 760px) {
+  .map-page {
+    flex-direction: column;
+  }
+
+  .map-control-panel {
+    width: 100%;
+    min-width: 100%;
+    height: 45vh;
+    max-height: 45vh;
+  }
+
+  .map-area {
+    height: 55vh;
+  }
+
+  .map-top-overlay {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .map-top-overlay > div:first-child {
+    padding: 9px 11px;
+  }
+
+  .map-top-overlay h1 {
+    font-size: 13px;
+  }
+
+  .map-top-overlay p {
+    font-size: 8px;
+  }
+
+  .map-top-actions {
+    gap: 4px;
+  }
+
+  .map-type-switcher button {
+    width: 32px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .map-type-switcher button {
+    font-size: 0;
+  }
+
+  .map-type-switcher button svg {
+    display: block;
+  }
+
+  .active-well-btn {
+    width: 34px;
+    padding: 0;
+    justify-content: center;
+    font-size: 0;
+  }
+
+  .map-legend {
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .coordinate-card {
+    right: 10px;
+    bottom: 10px;
+    min-width: 175px;
+  }
+}
+
+@media (max-width: 480px) {
+  .well-stats {
+    padding: 9px 12px;
+  }
+
+  .map-search {
+    margin: 0 12px 9px;
+  }
+
+  .radius-panel,
+  .add-well-section {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .well-list {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .map-brand {
+    padding: 13px;
+  }
+
+  .map-control-panel {
+    height: 48vh;
+    max-height: 48vh;
+  }
+
+  .map-area {
+    height: 52vh;
+  }
+
+  .coordinate-card {
+    display: none;
+  }
+}

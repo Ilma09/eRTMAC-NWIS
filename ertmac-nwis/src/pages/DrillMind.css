@@ -1,0 +1,1651 @@
+/* =====================================================
+   DRILL MIND — MODERN AI INTERFACE
+===================================================== */
+
+.drill-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 28px 32px;
+
+  overflow: hidden;
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =====================================================
+   LAYOUT - sidebar (past conversations) + main chat column
+===================================================== */
+
+.drill-layout {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 20px;
+}
+
+.drill-main {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.drill-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  padding: 16px;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  background: var(--bg-card);
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.new-chat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  height: 38px;
+
+  border: none;
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #6366f1
+    );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.new-chat-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  overflow-y: auto;
+
+  max-height: calc(100vh - 220px);
+}
+
+.conversation-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 10px;
+
+  border-radius: 9px;
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.conversation-item:hover {
+  background: var(--hover);
+}
+
+.conversation-item.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.conversation-item > svg {
+  flex-shrink: 0;
+}
+
+.conversation-title {
+  flex: 1;
+  min-width: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.delete-conversation-btn {
+  flex-shrink: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+}
+
+.conversation-item:hover .delete-conversation-btn {
+  display: flex;
+}
+
+.delete-conversation-btn:hover {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+
+/* =====================================================
+   SUBTLE BACKGROUND GLOW
+===================================================== */
+
+.drill-page::before {
+  content: "";
+
+  position: fixed;
+
+  width: 420px;
+  height: 420px;
+
+  top: -180px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.07);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.drill-page::after {
+  content: "";
+
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  bottom: -150px;
+  left: 25%;
+
+  border-radius: 50%;
+
+  background: rgba(124, 58, 237, 0.05);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.drill-header {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+  padding: 18px 20px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  background: var(--bg-card);
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.05);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.drill-title-section {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+/* =====================================================
+   AI LOGO
+===================================================== */
+
+.drill-logo {
+  position: relative;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #6366f1,
+      #7c3aed
+    );
+
+  color: white;
+
+  box-shadow:
+    0 10px 25px rgba(79, 70, 229, 0.25);
+}
+
+.drill-logo::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(99, 102, 241, 0.18);
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.drill-label {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+
+  color: var(--primary);
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.drill-title-section h1 {
+  margin: 0;
+
+  font-size: 25px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  color: var(--text-primary);
+}
+
+.drill-title-section p {
+  margin: 5px 0 0;
+
+  font-size: 11px;
+
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   ENGINE STATUS
+===================================================== */
+
+.drill-status {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 9px 13px;
+
+  border-radius: 30px;
+
+  background: var(--primary-light);
+
+  border: 1px solid rgba(37, 99, 235, 0.12);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  color: var(--primary);
+
+  white-space: nowrap;
+}
+
+.drill-status span {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+}
+
+.drill-status span::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border-radius: 50%;
+
+  background: rgba(34, 197, 94, 0.15);
+
+  animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+
+  0% {
+    transform: scale(0.7);
+    opacity: 0.8;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =====================================================
+   CHAT CONTAINER
+===================================================== */
+
+.drill-chat-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+
+  min-height: 540px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  background: var(--bg-card);
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.06);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =====================================================
+   CHAT MESSAGES
+===================================================== */
+
+.chat-messages {
+  flex: 1;
+
+  min-height: 250px;
+
+  padding: 26px;
+
+  overflow-y: auto;
+}
+
+.chat-message {
+  display: flex;
+
+  gap: 11px;
+
+  max-width: 850px;
+
+  margin-bottom: 20px;
+
+  animation: messageAppear 0.25s ease;
+}
+
+@keyframes messageAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   USER MESSAGE
+===================================================== */
+
+.user-message {
+  margin-left: auto;
+
+  flex-direction: row-reverse;
+}
+
+
+/* =====================================================
+   AVATAR
+===================================================== */
+
+.message-avatar {
+  width: 33px;
+  height: 33px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+.user-message .message-avatar {
+  background: var(--primary);
+
+  color: white;
+}
+
+
+/* =====================================================
+   MESSAGE CONTENT
+===================================================== */
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  max-width: 720px;
+}
+
+.user-message .message-content {
+  align-items: flex-end;
+}
+
+.message-name {
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.4px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   CHAT BUBBLE
+===================================================== */
+
+.message-bubble {
+  padding: 12px 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 5px 14px 14px 14px;
+
+  background: var(--bg-primary);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+
+  color: var(--text-primary);
+
+  white-space: pre-wrap;
+}
+
+.user-message .message-bubble {
+  border: none;
+
+  border-radius: 14px 5px 14px 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: white;
+
+  box-shadow:
+    0 6px 16px rgba(37, 99, 235, 0.18);
+}
+
+
+/* =====================================================
+   FILE MESSAGE
+===================================================== */
+
+.message-file {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 230px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+
+  background: var(--bg-primary);
+
+  color: var(--primary);
+}
+
+.message-file > div {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.message-file strong {
+  max-width: 230px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 10px;
+
+  color: var(--text-primary);
+}
+
+.message-file span {
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   CITATIONS
+===================================================== */
+
+.citation-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 6px;
+
+  max-width: 720px;
+}
+
+.citation-label {
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.4px;
+
+  color: var(--text-muted);
+}
+
+.citation-chip {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 4px 8px;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background: var(--bg-primary);
+
+  color: var(--text-secondary);
+
+  font-size: 8px;
+}
+
+
+/* =====================================================
+   WELCOME
+===================================================== */
+
+.drill-welcome {
+  padding: 28px 30px 34px;
+
+  text-align: center;
+
+  border-top: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-primary),
+      var(--bg-card)
+    );
+}
+
+
+/* =====================================================
+   WELCOME ICON
+===================================================== */
+
+.welcome-icon {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 12px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.12),
+      rgba(124, 58, 237, 0.12)
+    );
+
+  color: var(--primary);
+}
+
+.welcome-icon::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(99, 102, 241, 0.10);
+}
+
+
+/* =====================================================
+   WELCOME TEXT
+===================================================== */
+
+.drill-welcome h2 {
+  margin: 0;
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  color: var(--text-primary);
+}
+
+.drill-welcome > p {
+  max-width: 540px;
+
+  margin: 7px auto 22px;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   SUGGESTION GRID
+===================================================== */
+
+.suggestion-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 11px;
+
+  max-width: 950px;
+
+  margin: auto;
+}
+
+
+/* =====================================================
+   SUGGESTION CARD
+===================================================== */
+
+.suggestion-grid button {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  min-height: 82px;
+
+  padding: 14px;
+
+  text-align: left;
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  background: var(--bg-card);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.suggestion-grid button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.suggestion-grid button:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(37, 99, 235, 0.35);
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.10);
+}
+
+.suggestion-grid button:hover::before {
+  opacity: 1;
+}
+
+.suggestion-grid button > svg {
+  flex-shrink: 0;
+
+  width: 18px;
+  height: 18px;
+
+  padding: 2px;
+
+  margin-top: 1px;
+
+  color: var(--primary);
+}
+
+.suggestion-grid button div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.suggestion-grid strong {
+  font-size: 10px;
+
+  font-weight: 750;
+
+  color: var(--text-primary);
+}
+
+.suggestion-grid span {
+  font-size: 8px;
+
+  line-height: 1.5;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   INPUT AREA
+===================================================== */
+
+.drill-input-area {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 15px;
+}
+
+
+/* =====================================================
+   ATTACHMENT PREVIEW
+===================================================== */
+
+.attachment-preview {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+  max-width: 100%;
+
+  gap: 9px;
+
+  margin-bottom: 8px;
+
+  padding: 8px 10px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+
+  background: var(--bg-card);
+
+  box-shadow:
+    0 5px 15px rgba(15, 23, 42, 0.05);
+}
+
+.attachment-file-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+.attachment-info {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.attachment-info strong {
+  max-width: 320px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 10px;
+
+  color: var(--text-primary);
+}
+
+.attachment-info span {
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  color: var(--text-muted);
+}
+
+.remove-attachment {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 4px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.remove-attachment:hover {
+  background: rgba(239, 68, 68, 0.10);
+
+  color: #ef4444;
+}
+
+
+/* =====================================================
+   INPUT BOX
+===================================================== */
+
+.chat-input-wrapper {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 58px;
+
+  padding: 7px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  background: var(--bg-card);
+
+  box-shadow:
+    0 8px 28px rgba(15, 23, 42, 0.07);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.chat-input-wrapper:focus-within {
+  border-color: rgba(37, 99, 235, 0.45);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.07),
+    0 8px 28px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =====================================================
+   ATTACH BUTTON
+===================================================== */
+
+.attachment-btn {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.attachment-btn:hover {
+  background: var(--hover);
+
+  color: var(--primary);
+
+  transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   FILE PICKER ("+" scope-to-files)
+===================================================== */
+
+.file-picker-wrapper {
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+.attach-file-btn {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.attach-file-btn:hover {
+  background: var(--hover);
+  color: var(--primary);
+}
+
+.file-picker-popover {
+  position: absolute;
+
+  bottom: calc(100% + 10px);
+  left: 0;
+
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--bg-card);
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.16);
+
+  overflow: hidden;
+
+  z-index: 20;
+}
+
+.file-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 12px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  color: var(--text-primary);
+}
+
+.file-picker-header button {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.file-picker-empty {
+  margin: 0;
+  padding: 14px 12px;
+
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.file-picker-list {
+  display: flex;
+  flex-direction: column;
+
+  max-height: 240px;
+
+  overflow-y: auto;
+
+  padding: 6px;
+}
+
+.file-picker-item {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 8px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.file-picker-item:hover {
+  background: var(--hover);
+}
+
+.file-picker-item input[type="checkbox"] {
+  flex-shrink: 0;
+
+  width: 14px;
+  height: 14px;
+
+  cursor: pointer;
+}
+
+.file-picker-item > div {
+  min-width: 0;
+}
+
+.file-picker-item strong {
+  display: block;
+
+  font-size: 10px;
+
+  color: var(--text-primary);
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.file-picker-item span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  color: var(--text-muted);
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   ATTACHED FILE CHIPS (above the input, before sending)
+===================================================== */
+
+.attached-file-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-bottom: 8px;
+}
+
+.attached-file-chip {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 5px 6px 5px 9px;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.attached-file-chip button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: inherit;
+
+  cursor: pointer;
+}
+
+.attached-file-chip button:hover {
+  background: rgba(37, 99, 235, 0.15);
+}
+
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
+.chat-input-wrapper textarea {
+  flex: 1;
+
+  min-width: 0;
+
+  min-height: 40px;
+  max-height: 130px;
+
+  padding: 10px 8px;
+
+  resize: none;
+
+  outline: none;
+
+  border: none !important;
+
+  background: transparent !important;
+
+  color: var(--text-primary) !important;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.chat-input-wrapper textarea::placeholder {
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.send-btn {
+  width: 41px;
+  height: 41px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: white;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 20px rgba(37, 99, 235, 0.28);
+}
+
+.send-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.send-btn:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* =====================================================
+   DISCLAIMER
+===================================================== */
+
+.input-disclaimer {
+  margin: 8px 0 0;
+
+  text-align: center;
+
+  font-size: 8px;
+
+  color: var(--text-muted);
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+.chat-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  background: var(--border);
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+.app.dark-mode .drill-page::before {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.app.dark-mode .drill-page::after {
+  background: rgba(139, 92, 246, 0.06);
+}
+
+.app.dark-mode .drill-header,
+.app.dark-mode .drill-chat-container,
+.app.dark-mode .chat-input-wrapper,
+.app.dark-mode .attachment-preview,
+.app.dark-mode .suggestion-grid button,
+.app.dark-mode .message-file {
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.20);
+}
+
+.app.dark-mode .message-bubble {
+  background: #172033;
+
+  border-color: #334155;
+}
+
+.app.dark-mode .drill-welcome {
+  background:
+    linear-gradient(
+      180deg,
+      #111827,
+      #1e293b
+    );
+}
+
+.app.dark-mode .chat-input-wrapper:focus-within {
+  box-shadow:
+    0 0 0 3px rgba(96, 165, 250, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .suggestion-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .drill-page {
+    padding: 18px 14px;
+  }
+
+  .drill-layout {
+    flex-direction: column;
+  }
+
+  .drill-sidebar {
+    width: 100%;
+  }
+
+  .conversation-list {
+    max-height: 160px;
+  }
+
+  .drill-header {
+    padding: 15px;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .drill-status {
+    display: none;
+  }
+
+  .drill-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .drill-title-section h1 {
+    font-size: 21px;
+  }
+
+  .drill-title-section p {
+    font-size: 9px;
+  }
+
+  .drill-chat-container {
+    min-height: 520px;
+
+    border-radius: 16px;
+  }
+
+  .chat-messages {
+    padding: 18px;
+  }
+
+  .drill-welcome {
+    padding: 22px 15px 26px;
+  }
+
+  .suggestion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-message {
+    max-width: 100%;
+  }
+
+  .message-content {
+    max-width: calc(100% - 45px);
+  }
+
+  .message-file {
+    min-width: 0;
+  }
+
+  .attachment-info strong {
+    max-width: 190px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+  .drill-page {
+    padding: 12px 9px;
+  }
+
+  .drill-header {
+    border-radius: 14px;
+  }
+
+  .drill-logo {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+  }
+
+  .drill-title-section h1 {
+    font-size: 19px;
+  }
+
+  .drill-title-section p {
+    display: none;
+  }
+
+  .drill-chat-container {
+    border-radius: 14px;
+  }
+
+  .chat-input-wrapper {
+    min-height: 52px;
+  }
+
+  .attachment-btn,
+  .send-btn {
+    width: 37px;
+    height: 37px;
+  }
+
+}
